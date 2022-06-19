@@ -2,8 +2,33 @@
     body {
         overflow: hidden;
     }
+
+    iframe {
+        border: none;
+        margin: 0;
+    }
+
+    input {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        height: 100%;
+        transition: all 1s ease;
+    }
+
+    input:hover {
+        width: 90%;
+        height: 90%;
+        transition: all 1s ease;
+    }
+    /* i suck at css */
+    input:active {
+        width:120%;
+        height:120%;
+    }
 </style>
 <form method="get" target="cookieFrame">
-    <input type="image" height="100%" width="100%" src="./cookie.webp" />
+    <input draggable="false" type="image" src="./cookie.webp" />
 </form>
-<iframe name="cookieFrame" src="./cookie"></iframe>
+<iframe height="0" width="0" name="cookieFrame" src="./cookie"></iframe>

@@ -24,19 +24,71 @@
         * {
             font-size: 20px;
         }
+
+        c {
+            position: absolute;
+            top: 5px;
+            left: 120px;
+            font-size: 24px;
+        }
+
+        d {
+            position: absolute;
+            top: 56px;
+            left: 420px;
+            font-size: 24px;
+        }
+
+        e {
+            position: absolute;
+            top: 56px;
+            left: 355px;
+            font-size: 24px;
+        }
+
+        f {
+            position: absolute;
+            top: 111px;
+            left: 420px;
+            font-size: 24px;
+        }
+
+        h {
+            position: absolute;
+            top: 111px;
+            left: 355px;
+            font-size: 24px;
+        }
+
+        l {
+            position: absolute;
+            top: 166px;
+            left: 420px;
+            font-size: 24px;
+        }
+
+        j {
+            position: absolute;
+            top: 166px;
+            left: 355px;
+            font-size: 24px;
+        }
     </style>
 </head>
 
 <body>
-    <p>This proof-of-concept is an implementation of <a href="https://orteil.dashnet.org/cookieclicker/">Cookie
-            Clicker</a> using absolutely zero JavaScript.</a></p>
-    <p>This is achieved with essentially a socket in the DOM, which never completes loading. By updating the DOM content
-        as it loads (via iframes in this POC), I can "change" old values with CSS.</p>
-    <iframe height="200" ; width="200" src="./cookieButton.html"></iframe><br />
-    <div class="cookieCounter">
-        <!-- Need a cheap vertical alignment? Don't know how to use CSS? Shove it in a DIV :) -->
-        <b height="20" class="text">COOKIES:&nbsp;</b><iframe height="22" width="80" src="./counter" class="text"></iframe>
-    </div>
-</body>
+    <div>
+        <b height="20" class="text">COOKIES:&nbsp;</b>
 
-</html>
+        <br />
+
+        <iframe style="display: block; float: left" height="200" width="200" src="./cookieButton.html"></iframe><br />
+
+        <iframe height="50" width="230" src="./buy-clicker"></iframe>
+        <br />
+        <iframe height="50" width="230" src="./buy-grandma"></iframe>
+        <br />
+        <iframe height="50" width="230" src="./buy-farm"></iframe>
+    </div>
+<!-- THIS IS INTENTIONAL. The page isn't supposed to end. -->
+    <b>
