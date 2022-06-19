@@ -149,14 +149,6 @@ http
         res.end();
         cookies += 1;
         break;
-      case "/counter":
-        res.writeHead(200, {
-          "Content-Type": "text/html",
-          Connection: "keep-alive",
-        });
-        res.write(fs.readFileSync("./counter.html"));
-
-        break;
       default:
         // just try to grab the file requested. [TODO - replace this with a 404 and its dependents with specified endpoints]
         res.writeHead(200);
