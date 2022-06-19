@@ -3,7 +3,7 @@ fs = require("fs");
 
 // ms before a new chunk is sent. The lower, the faster values update.
 // The higher, the slower; however, HTML will aggregate more slowly (good).
-const BASE_REPEAT_MS = 200;
+const BASE_REPEAT_MS = 1200;
 const PORT = 1234;
 
 // Init all game data
