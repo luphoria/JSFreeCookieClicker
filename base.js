@@ -9,16 +9,16 @@ const PORT = 1234;
 // Init all game data
 let cookies = -1; // -1 because the initial req to /cookie will increment this to 0
 let store = {
-  upgrades: {
-    RIF: {
-      basePrice: 100,
-      owned: 0,
-    },
-    CTPC: {
-      basePrice: 500,
-      owned: 0,
-    },
-  },
+  // upgrades: {
+  //   RIF: {
+  //     basePrice: 100,
+  //     owned: 0,
+  //   },
+  //   CTPC: {
+  //     basePrice: 500,
+  //     owned: 0,
+  //   },
+  // },
   items: {
     clicker: {
       basePrice: 15,
@@ -32,11 +32,11 @@ let store = {
       basePrice: 1100,
       owned: 0,
     },
-    mine: {
-      basePrice: 12000,
-      owned: 0,
-    },
-    factory: 0,
+    // mine: {
+    //   basePrice: 12000,
+    //   owned: 0,
+    // },
+    // factory: 0,
   },
 };
 
