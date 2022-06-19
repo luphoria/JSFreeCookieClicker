@@ -40,6 +40,17 @@ let store = {
   },
 };
 
+const auto_clicks = () => {
+  setTimeout(() => {
+    cookies +=
+      store.items.clicker.owned * 0.1 +
+      store.items.grandma.owned * 1 +
+      store.items.farm.owned * 8;
+      auto_clicks();
+  }, 1000);
+};
+auto_clicks();
+
 // (TODO) bool which will be used to stop chunk loops once the user quits the game.
 let clientConnectionStopped = false;
 
@@ -96,7 +107,7 @@ http
               // feed new information into the DOM, including a stylesheet
               // to hide the outdated info. Each item has a weird element
               // name, to save data transfer.
-              `<c id="c${loop}">${cookies}</c><d id="a${loop}">${
+              `<c id="c${loop}">${Math.floor(cookies)}</c><d id="a${loop}">${
                 store.items.clicker.owned
               }</d><e id="b${loop}">${Math.ceil(
                 store.items.clicker.basePrice *
