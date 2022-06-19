@@ -3,7 +3,7 @@ fs = require("fs");
 
 // ms before a new chunk is sent. The lower, the faster values update.
 // The higher, the slower; however, HTML will aggregate more slowly (good).
-const BASE_REPEAT_MS = 500;
+const BASE_REPEAT_MS = 200;
 const PORT = 1234;
 
 // Init all game data
@@ -149,10 +149,18 @@ http
         res.end();
         cookies += 1;
         break;
+      case "/cookieButton":
+        res.writeHead(200);
+        res.end(fs.readFileSync("./cookieButton.html"));
+        break;
+      case "/cookie.webp":
+        res.writeHead(200);
+        res.end(fs.readFileSync("./cookie.webp"));
+        break;
       default:
         // just try to grab the file requested. [TODO - replace this with a 404 and its dependents with specified endpoints]
-        res.writeHead(200);
-        res.end(fs.readFileSync("." + req.url.split("?")[0]));
+        res.writeHead(404);
+        res.end("Not Found");
         break;
     }
   })
