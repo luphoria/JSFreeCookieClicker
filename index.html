@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-Free Cookie Clicker</title>
+    <style>
+        iframe {
+            border: none;
+            margin: 0;
+        }
+
+        .cookieCounter {
+            height: 20;
+        }
+
+        .text {
+            display: block;
+            float: left;
+        }
+
+        * {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>This proof-of-concept is an implementation of <a href="https://orteil.dashnet.org/cookieclicker/">Cookie
+            Clicker</a> using absolutely zero JavaScript.</a></p>
+    <p>This is achieved with essentially a socket in the DOM, which never completes loading. By updating the DOM content
+        as it loads (via iframes in this POC), I can "change" old values with CSS.</p>
+    <iframe height="200" ; width="200" src="./cookieButton.html"></iframe><br />
+    <div class="cookieCounter">
+        <!-- Need a cheap vertical alignment? Don't know how to use CSS? Shove it in a DIV :) -->
+        <b height="20" class="text">COOKIES:&nbsp;</b><iframe height="22" width="80" src="./counter" class="text"></iframe>
+    </div>
+</body>
+
+</html>
