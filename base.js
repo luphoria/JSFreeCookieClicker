@@ -68,7 +68,7 @@ http
     if (req.url.startsWith("/buy")) {
       let pick = req.url.split("-")[1].split("?")[0];
 
-      res.write(
+      res.end(
         "<b>" +
           pick.charAt(0).toUpperCase() +
           pick.slice(1) +
@@ -77,20 +77,6 @@ http
           pick +
           '"></iframe>'
       );
-
-      // Set up a loop of chunks, so that we can slowly provide up-to-date information
-      let loop = 0;
-      const loop_update = () => {
-        setTimeout(() => {
-          // Add a chunk of updated HTML, along with extra CSS to hide the outdated HTML
-          res.write(``);
-          // increment loop for next iteration to hide
-          loop++;
-          // Re-call the same function [TODO: only if the client still is connected]
-          if (!clientConnectionStopped) loop_update();
-        }, BASE_REPEAT_MS * 2);
-      };
-      loop_update();
 
       return;
     }
@@ -106,6 +92,10 @@ http
             // Add a chunk of updated HTML, along with extra CSS to hide the outdated HTML
             res.write(
               // LIST OF EXISTING 1CHAR ELS = abgipqsu
+              // EXPLANATION: This is the "data stream". What it does is
+              // feed new information into the DOM, including a stylesheet
+              // to hide the outdated info. Each item has a weird element
+              // name, to save data transfer.
               `<c id="c${loop}">${cookies}</c><d id="a${loop}">${
                 store.items.clicker.owned
               }</d><e id="b${loop}">${Math.ceil(
